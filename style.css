@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#year-select-container {
+    position: absolute;
+    top: 20px;
+    right: 30px
+}
+
+#togglelist {
+    margin: 1rem;
+}
+
+.offcanvas-body {
+    padding-left: 0;
+    padding-right: 0;
+}
