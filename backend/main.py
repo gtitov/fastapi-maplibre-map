@@ -1,13 +1,9 @@
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware  # CORS
-from fastapi.middleware.gzip import GZipMiddleware  # gZip
 
 import sqlite3
 
 app = FastAPI()
-
-app.add_middleware(GZipMiddleware, minimum_size=1000)  # gZip
 
 origins = [ # CORS
     "*",
@@ -21,7 +17,7 @@ app.add_middleware(  # CORS
     allow_headers=["*"],
 )
 
-DB_LOCATION = "./cities_index.sqlite"
+DB_LOCATION = "cities_index.sqlite"
 
 con = sqlite3.connect(DB_LOCATION)
 con.row_factory
