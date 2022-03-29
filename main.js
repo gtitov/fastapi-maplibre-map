@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // );
 
         // DOCS: https://docs.mapbox.com/api/maps/vector-tiles/
-        // https://api.mapbox.com/v4/{tileset_id}.json?access_token={access_token}
+        // TILEJSON: https://api.mapbox.com/v4/{tileset_id}.json?access_token={access_token} > copy "tiles": [...] > change http to https
         map.addSource('countries', {
             'type': 'vector',
-            'url': "https://api.mapbox.com/v4/ghermant.aq1p7k29.json?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A"
+            "tiles": ["https://a.tiles.mapbox.com/v4/ghermant.aq1p7k29/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A","https://b.tiles.mapbox.com/v4/ghermant.aq1p7k29/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A"]
         });
         map.addLayer(
             {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // QA: почему данные отображаются не на всех масштабных уровнях? https://docs.mapbox.com/help/troubleshooting/adjust-tileset-zoom-extent/
         map.addSource('districts', {
             'type': 'vector',
-            'url': "https://api.mapbox.com/v4/ghermant.9hdnm6xy.json?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A"
+            "tiles":["https://a.tiles.mapbox.com/v4/ghermant.9hdnm6xy/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A","https://b.tiles.mapbox.com/v4/ghermant.9hdnm6xy/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZ2hlcm1hbnQiLCJhIjoiY2pncDUwcnRmNDQ4ZjJ4czdjZXMzaHZpNyJ9.3rFyYRRtvLUngHm027HZ7A"]
         });
         map.addLayer(
             {
