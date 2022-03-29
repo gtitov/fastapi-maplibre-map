@@ -140,11 +140,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             var city_id = features[0].properties.id
-            console.log(city_id)
+            // console.log(city_id)
             fetch(`https://oph9xu.deta.dev/city/${city_id}`)  // <-- CHANGE ME!
                 .then(response => response.json())
                 .then(city_details => {
-                    console.log(city_details)
+                    // console.log(city_details)
                     document.getElementById("inside-modal").innerHTML = `<h1>${city_details.name}</h1>
                     <img src="${city_details.emblem_url}">
                     <h3>Численность населения</h3><h2>${city_details.people_count}</h2>
