@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         map.addSource('cities', {
             type: 'geojson',
-            data: "https://oph9xu.deta.dev/cities/2020"  // <-- CHANGE ME!
+            data: "https://81hk55.deta.dev/cities/2020"  // <-- CHANGE ME!
         });
 
         map.addLayer({
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         function set_year(year) {
-            map.getSource('cities').setData(`https://oph9xu.deta.dev/cities/${year}`)  // <-- CHANGE ME!
+            map.getSource('cities').setData(`https://81hk55.deta.dev/cities/${year}`)  // <-- CHANGE ME!
         }
 
         document.getElementById("year-selector").addEventListener('change', function () { set_year(this.value) })
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var city_id = features[0].properties.id
             // console.log(city_id)
-            fetch(`https://oph9xu.deta.dev/city/${city_id}`)  // <-- CHANGE ME!
+            fetch(`https://81hk55.deta.dev/city/${city_id}`)  // <-- CHANGE ME!
                 .then(response => response.json())
                 .then(city_details => {
                     // console.log(city_details)
