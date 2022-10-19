@@ -1,26 +1,23 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # CORS
+from fastapi.middleware.cors import CORSMiddleware
 
 import sqlite3
 
+
+
 app = FastAPI()
 
-origins = [ # CORS
-    "*",
-]
-
-app.add_middleware(  # CORS
+app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
 
 DB_LOCATION = "cities_index.sqlite"
 
 con = sqlite3.connect(DB_LOCATION)
-con.row_factory
 cur = con.cursor()
 
 
@@ -46,14 +43,13 @@ async def cities_by_year(year):
             "year": year
         }
     )
-
     cities = cur.fetchall()
 
     features = {
         "type": "FeatureCollection",
         "features": [
             {
-                "type": "Feature",
+                "type": "Features",
                 "geometry": {
                     "type": "Point",
                     "coordinates": [row[2], row[3]]
@@ -69,7 +65,6 @@ async def cities_by_year(year):
             for row in cities
         ]
     }
-
     return features
 
 @app.get("/city/{id}")
@@ -94,19 +89,19 @@ async def details_by_id(id):
             "id": id
         }
     )
-
+    
     city_row = cur.fetchone()
-
     return {
-            "id": city_row[0],
-            "name": city_row[1],
-            "people_count": city_row[2],
-            "total_points": city_row[3],
-            "house_points": city_row[4],
-            "street_points": city_row[5],
-            "park_points": city_row[6],
-            "business_points": city_row[7],
-            "social_points": city_row[8],
-            "common_points": city_row[9],
-            "emblem_url": city_row[10]
+        "id": city_row[0],
+        "name": city_row[1],
+        "people_count": city_row[2],
+        "total_points": city_row[3],
+        "house_points": city_row[4],
+        "street_points": city_row[5],
+        "park_points": city_row[6],
+        "business_points": city_row[7],
+        "social_points": city_row[8],
+        "common_points": city_row[9],
+        "emblem_url": city_row[10]
+
     }
