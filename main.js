@@ -135,11 +135,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // When a click event occurs on a feature in the clusters layer, open a modal
         map.on('click', 'cities-layer', function (e) {
-            var features = map.queryRenderedFeatures(e.point, {
-                layers: ['cities-layer']
-            });
-
-            var city_id = features[0].properties.id
+            // var features = map.queryRenderedFeatures(e.point, {
+            //     layers: ['cities-layer']
+            // });
+            // var city_id = features[0].properties.id
+            
+            const city_id = e.features[0].properties.id
             // console.log(city_id)
             fetch(`https://81hk55.deta.dev/city/${city_id}`)  // <-- CHANGE ME!
                 .then(response => response.json())
